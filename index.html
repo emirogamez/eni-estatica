@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ENI - Escuela Nacional de Aprendizaje. Formamos a los instructores que transforman vidas. Conoce nuestras oportunidades de capacitación." />
+  <title>ENI | Escuela Nacional de Aprendizaje - SENA</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sena-green: #39A900;
+      --sena-green-dark: #2E7D00;
+      --sena-green-light: #5FBF2E;
+      --sena-green-soft: #E8F5E0;
+      --sena-blue: #00324D;
+      --sena-gray: #F4F6F8;
+      --text-dark: #1F2937;
+      --text-muted: #6B7280;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.10);
+      --shadow-lg: 0 16px 40px rgba(57,169,0,0.15);
+      --radius: 16px;
+      --transition: all 0.3s ease;
+    }
+
+    * { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, .brand-font {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar-eni {
+      background-color: #ffffff;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      padding: 0.9rem 0;
+    }
+    .navbar-eni.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: var(--shadow-md);
+    }
+    .navbar-eni .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      color: var(--sena-blue);
+      font-size: 1.35rem;
+      letter-spacing: -0.5px;
+    }
+    .logo-eni {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--sena-green), var(--sena-green-dark));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 14px rgba(57,169,0,0.35);
+      transition: var(--transition);
+    }
+    .navbar-brand:hover .logo-eni {
+      transform: rotate(-5deg) scale(1.05);
+    }
+    .brand-text small {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .navbar-eni .nav-link {
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem !important;
+      position: relative;
+      transition: var(--transition);
+    }
+    .navbar-eni .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--sena-green);
+      transition: var(--transition);
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+    .navbar-eni .nav-link:hover,
+    .navbar-eni .nav-link.active {
+      color: var(--sena-green-dark);
+    }
+    .navbar-eni .nav-link:hover::after,
+    .navbar-eni .nav-link.active::after {
+      width: 60%;
+    }
+    .btn-sena {
+      background: linear-gradient(135deg, var(--sena-green), var(--sena-green-dark));
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      padding: 0.65rem 1.6rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(57,169,0,0.3);
+    }
+    .btn-sena:hover {
+      background: linear-gradient(135deg, var(--sena-green-dark), #1F5A00);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(57,169,0,0.45);
+    }
+    .btn-outline-sena {
+      border: 2px solid var(--sena-green);
+      color: var(--sena-green-dark);
+      font-weight: 700;
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      background: transparent;
+      transition: var(--transition);
+    }
+    .btn-outline-sena:hover {
+      background: var(--sena-green);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(0,50,77,0.92) 0%, rgba(46,125,0,0.85) 100%),
+        url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: #fff;
+      padding: 7rem 0 6rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(57,169,0,0.4), transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(95,191,46,0.25), transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 .highlight {
+      color: #B4F09A;
+      position: relative;
+    }
+    .hero p.lead {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 600px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #B4F09A;
+      margin-bottom: 0.2rem;
+    }
+    .hero-stat span {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .hero-image-wrapper {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-card-float {
+      background: #fff;
+      color: var(--text-dark);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      max-width: 320px;
+      position: absolute;
+      bottom: -30px;
+      left: -20px;
+      animation: floatY 4s ease-in-out infinite;
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .hero-card-float .icon-circle {
+      width: 48px; height: 48px;
+      background: var(--sena-green-soft);
+      color: var(--sena-green-dark);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 0.8rem;
+    }
+
+    /* ===== SECCIONES ===== */
+    section { padding: 5rem 0; }
+    .section-label {
+      display: inline-block;
+      color: var(--sena-green-dark);
+      background: var(--sena-green-soft);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--sena-blue);
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    /* ===== MISIÓN / VISIÓN ===== */
+    .mv-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      height: 100%;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #EEF1F4;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 5px;
+      background: linear-gradient(90deg, var(--sena-green), var(--sena-green-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .mv-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+    .mv-card:hover::before { transform: scaleX(1); }
+    .mv-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--sena-green), var(--sena-green-dark));
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 20px rgba(57,169,0,0.3);
+    }
+    .mv-card h3 {
+      font-size: 1.4rem;
+      color: var(--sena-blue);
+      margin-bottom: 1rem;
+    }
+    .mv-card p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* ===== OPORTUNIDADES (ACORDEÓN) ===== */
+    .oportunidades {
+      background: var(--sena-gray);
+    }
+    .accordion-eni .accordion-item {
+      border: none;
+      border-radius: var(--radius) !important;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      background: #fff;
+    }
+    .accordion-eni .accordion-button {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--sena-blue);
+      background: #fff;
+      padding: 1.4rem 1.5rem;
+      border: none;
+      box-shadow: none !important;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .accordion-eni .accordion-button:not(.collapsed) {
+      background: linear-gradient(135deg, var(--sena-green), var(--sena-green-dark));
+      color: #fff;
+    }
+    .accordion-eni .accordion-button:not(.collapsed) .acc-icon {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+    .accordion-eni .accordion-button::after {
+      filter: hue-rotate(0deg);
+    }
+    .accordion-eni .accordion-button:not(.collapsed)::after {
+      filter: brightness(0) invert(1);
+    }
+    .acc-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: var(--sena-green-soft);
+      color: var(--sena-green-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+    .accordion-eni .accordion-body {
+      padding: 1.5rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .accordion-eni .accordion-body ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0;
+    }
+    .accordion-eni .accordion-body ul li {
+      margin-bottom: 0.5rem;
+    }
+    .accordion-eni .accordion-body ul li::marker {
+      color: var(--sena-green);
+    }
+
+    /* ===== BENEFICIOS ===== */
+    .benefit-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      height: 100%;
+      text-align: center;
+      border: 1px solid #EEF1F4;
+      transition: var(--transition);
+    }
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--sena-green-light);
+      box-shadow: var(--shadow-md);
+    }
+    .benefit-icon {
+      width: 70px; height: 70px;
+      margin: 0 auto 1.2rem;
+      border-radius: 50%;
+      background: var(--sena-green-soft);
+      color: var(--sena-green-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      transition: var(--transition);
+    }
+    .benefit-card:hover .benefit-icon {
+      background: linear-gradient(135deg, var(--sena-green), var(--sena-green-dark));
+      color: #fff;
+      transform: rotate(8deg) scale(1.08);
+    }
+    .benefit-card h4 {
+      font-size: 1.1rem;
+      color: var(--sena-blue);
+      margin-bottom: 0.7rem;
+    }
+    .benefit-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--sena-blue) 0%, var(--sena-green-dark) 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+      margin: 0 1rem;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(57,169,0,0.5), transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.9);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-section .btn {
+      position: relative;
+      z-index: 2;
+    }
+    .btn-light-sena {
+      background: #fff;
+      color: var(--sena-green-dark);
+      font-weight: 700;
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-light-sena:hover {
+      background: var(--sena-green-soft);
+      color: var(--sena-green-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+    }
+
+    /* ===== FORMULARIO ===== */
+    .form-section {
+      background: var(--sena-gray);
+    }
+    .form-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      border-top: 5px solid var(--sena-green);
+    }
+    .form-card .form-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--sena-blue);
+      margin-bottom: 0.4rem;
+    }
+    .form-card .form-control,
+    .form-card .form-select {
+      border-radius: 10px;
+      border: 1.5px solid #E2E8F0;
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .form-card .form-control:focus,
+    .form-card .form-select:focus {
+      border-color: var(--sena-green);
+      box-shadow: 0 0 0 4px rgba(57,169,0,0.12);
+    }
+    .form-card .form-control.is-invalid,
+    .form-card .form-select.is-invalid {
+      border-color: #dc3545;
+    }
+    .form-check-input:checked {
+      background-color: var(--sena-green);
+      border-color: var(--sena-green);
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info-item .icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--sena-green-soft);
+      color: var(--sena-green-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-info-item h5 {
+      font-size: 0.95rem;
+      color: var(--sena-blue);
+      margin-bottom: 0.2rem;
+    }
+    .contact-info-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--sena-blue);
+      color: rgba(255,255,255,0.8);
+      padding: 4rem 0 1.5rem;
+    }
+    footer h5 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+    footer a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    footer a:hover {
+      color: var(--sena-green-light);
+      transform: translateX(4px);
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .social-links a {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.5rem;
+      font-size: 1rem;
+    }
+    .social-links a:hover {
+      background: var(--sena-green);
+      color: #fff;
+      transform: translateY(-4px);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 1.5rem;
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== BACK TO TOP ===== */
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--sena-green);
+      color: #fff;
+      border: none;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 1000;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #backToTop:hover {
+      background: var(--sena-green-dark);
+      transform: translateY(-4px);
+    }
+
+    /* ===== ANIMACIONES SCROLL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 991px) {
+      .hero { padding: 5rem 0 4rem; }
+      .hero-card-float {
+        position: relative;
+        bottom: auto; left: auto;
+        margin: 2rem auto 0;
+        animation: none;
+      }
+      .navbar-eni .nav-link::after { display: none; }
+      section { padding: 3.5rem 0; }
+    }
+    @media (max-width: 576px) {
+      .hero-stats { gap: 1.5rem; }
+      .hero-stat h3 { font-size: 1.5rem; }
+      .form-card { padding: 1.5rem; }
+      .cta-section { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar navbar-expand-lg navbar-eni sticky-top" id="mainNav" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio" aria-label="ENI - Escuela Nacional de Aprendizaje, ir al inicio">
+        <span class="logo-eni" aria-hidden="true">ENI</span>
+        <span class="brand-text">
+          Escuela Nacional
+          <small>de Aprendizaje · SENA</small>
+        </span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mision">Misión y Visión</a></li>
+          <li class="nav-item"><a class="nav-link" href="#oportunidades">Capacitación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="btn btn-sena" href="#inscripcion">
+              <i class="bi bi-pencil-square me-1"></i> Inscríbete
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="inicio">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 hero-content">
+          <span class="hero-badge">
+            <i class="bi bi-patch-check-fill" style="color:#B4F09A;"></i>
+            Programa Nacional de Formación de Instructores
+          </span>
+          <h1>
+            Formamos a los <span class="highlight">instructores</span> que transforman vidas
+          </h1>
+          <p class="lead">
+            La Escuela Nacional de Aprendizaje (ENI) es el espacio del SENA donde los instructores
+            fortalecen sus competencias pedagógicas, técnicas y humanas para liderar la formación
+            profesional integral del país.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#inscripcion" class="btn btn-sena btn-lg">
+              <i class="bi bi-rocket-takeoff me-2"></i>Quiero capacitarme
+            </a>
+            <a href="#oportunidades" class="btn btn-outline-light btn-lg rounded-pill px-4">
+              Ver programas
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <h3>+15.000</h3>
+              <span>Instructores formados</span>
+            </div>
+            <div class="hero-stat">
+              <h3>+40</h3>
+              <span>Programas activos</span>
+            </div>
+            <div class="hero-stat">
+              <h3>32</h3>
+              <span>Departamentos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 hero-image-wrapper d-none d-lg-block">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=800&q=80"
+                 alt="Instructores del SENA en capacitación pedagógica"
+                 class="img-fluid rounded-4 shadow-lg" loading="lazy" />
+            <div class="hero-card-float">
+              <div class="icon-circle"><i class="bi bi-mortarboard-fill"></i></div>
+              <h5 class="fw-bold mb-1" style="color:var(--sena-blue);">Certifícate con la ENI</h5>
+              <p class="mb-0 small text-muted">Programas avalados por el SENA y el Ministerio de Educación Nacional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MISIÓN Y VISIÓN ========== -->
+  <section id="mision" aria-labelledby="misionTitle">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Nuestra esencia</span>
+        <h2 class="section-title" id="misionTitle">Misión y Visión de la ENI</h2>
+        <p class="section-subtitle">
+          Trabajamos para que cada instructor del SENA cuente con las herramientas
+          pedagógicas, técnicas y humanas que exige la formación profesional del siglo XXI.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 reveal">
+          <article class="mv-card">
+            <div class="mv-icon"><i class="bi bi-bullseye"></i></div>
+            <h3>Misión</h3>
+            <p>
+              Formar y actualizar a los instructores del SENA mediante procesos pedagógicos,
+              técnicos y humanos de alta calidad, que les permitan diseñar, ejecutar y evaluar
+              acciones formativas pertinentes, innovadoras e inclusivas, contribuyendo al
+              desarrollo social y productivo del país.
+            </p>
+          </article>
+        </div>
+        <div class="col-md-6 reveal">
+          <article class="mv-card">
+            <div class="mv-icon"><i class="bi bi-eye-fill"></i></div>
+            <h3>Visión</h3>
+            <p>
+              En 2030, la ENI será reconocida como el referente nacional e internacional en
+              formación de formadores, destacándose por la innovación educativa, la
+              cualificación permanente de sus instructores y su aporte a la transformación
+              productiva y social de Colombia.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OPORTUNIDADES (ACORDEÓN INTERACTIVO) ========== -->
+  <section id="oportunidades" class="oportunidades" aria-labelledby="oportunidadesTitle">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Oportunidades para instructores</span>
+        <h2 class="section-title" id="oportunidadesTitle">Programas de capacitación ENI</h2>
+        <p class="section-subtitle">
+          Explora nuestras líneas de formación diseñadas para potenciar tu perfil como instructor SENA.
+          Haz clic en cada programa para conocer los detalles.
+        </p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10 reveal">
+          <div class="accordion accordion-eni" id="accordionProgramas">
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <span class="acc-icon"><i class="bi bi-mortarboard-fill"></i></span>
+                  Formación Pedagógica para Instructores
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse show"
+                aria-labelledby="headingOne" data-bs-parent="#accordionProgramas">
+                <div class="accordion-body">
+                  <p>Programa dirigido a instructores que desean fortalecer sus competencias pedagógicas
+                  y didácticas para la formación profesional integral.</p>
+                  <ul>
+                    <li><strong>Duración:</strong> 120 horas</li>
+                    <li><strong>Modalidad:</strong> Virtual y presencial</li>
+                    <li><strong>Certificación:</strong> Avalada por el SENA</li>
+                    <li><strong>Dirigido a:</strong> Instructores nuevos y en ejercicio</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <span class="acc-icon"><i class="bi bi-cpu-fill"></i></span>
+                  Competencias Digitales e Innovación Educativa
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse"
+                aria-labelledby="headingTwo" data-bs-parent="#accordionProgramas">
+                <div class="accordion-body">
+                  <p>Capacitación en herramientas digitales, aulas virtuales, IA aplicada a la educación
+                  y metodologías activas de aprendizaje.</p>
+                  <ul>
+                    <li><strong>Duración:</strong> 80 horas</li>
+                    <li><strong>Modalidad:</strong> Virtual</li>
+                    <li><strong>Incluye:</strong> Manejo de LMS, diseño de contenidos y evaluación digital</li>
+                    <li><strong>Dirigido a:</strong> Instructores con interés en transformación digital</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <span class="acc-icon"><i class="bi bi-people-fill"></i></span>
+                  Habilidades Blandas y Liderazgo Formativo
+                </button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse"
+                aria-labelledby="headingThree" data-bs-parent="#accordionProgramas">
+                <div class="accordion-body">
+                  <p>Desarrolla competencias socioemocionales, comunicación asertiva, trabajo en equipo
+                  y liderazgo para ambientes de aprendizaje.</p>
+                  <ul>
+                    <li><strong>Duración:</strong> 60 horas</li>
+                    <li><strong>Modalidad:</strong> Presencial y virtual</li>
+                    <li><strong>Temáticas:</strong> Inteligencia emocional, mediación de conflictos, motivación</li>
+                    <li><strong>Dirigido a:</strong> Instructores líderes y coordinadores académicos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <span class="acc-icon"><i class="bi bi-clipboard-check-fill"></i></span>
+                  Actualización Técnica Especializada
+                </button>
+              </h3>
+              <div id="collapseFour" class="accordion-collapse collapse"
+                aria-labelledby="headingFour" data-bs-parent="#accordionProgramas">
+                <div class="accordion-body">
+                  <p>Programas por áreas de conocimiento para mantener actualizados a los instructores
+                  en las últimas tendencias técnicas de su especialidad.</p>
+                  <ul>
+                    <li><strong>Áreas:</strong> TIC, industria, salud, agro, servicios, construcción</li>
+                    <li><strong>Duración:</strong> Variable según especialidad (40 a 120 horas)</li>
+                    <li><strong>Modalidad:</strong> Presencial, virtual o mixta</li>
+                    <li><strong>Certificación:</strong> Por competencias laborales</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFICIOS ========== -->
+  <section id="beneficios" aria-labelledby="beneficiosTitle">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">¿Por qué capacitarte con la ENI?</span>
+        <h2 class="section-title" id="beneficiosTitle">Beneficios para instructores</h2>
+        <p class="section-subtitle">
+          Participar en los programas de la ENI te permite crecer profesionalmente,
+          mejorar tu práctica docente y acceder a oportunidades de desarrollo dentro del SENA.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-award-fill"></i></div>
+            <h4>Certificación oficial</h4>
+            <p>Obtén certificados avalados por el SENA que respaldan tu formación pedagógica y técnica.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h4>Crecimiento profesional</h4>
+            <p>Mejora tu perfil y accede a nuevas oportunidades de ascenso y asignación académica.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-laptop"></i></div>
+            <h4>Modalidad flexible</h4>
+            <p>Programas virtuales, presenciales y mixtos que se adaptan a tu disponibilidad.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal">
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-people-fill"></i></div>
+            <h4>Comunidad ENI</h4>
+            <p>Únete a una red nacional de instructores comprometidos con la excelencia formativa.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Requisitos e inscripción -->
+      <div class="row mt-5 g-4 align-items-stretch">
+        <div class="col-lg-6 reveal">
+          <div class="mv-card h-100">
+            <div class="mv-icon"><i class="bi bi-list-check"></i></div>
+            <h3>Requisitos de inscripción</h3>
+            <ul class="mt-3 mb-0" style="color:var(--text-muted); line-height:1.9;">
+              <li>Ser instructor activo del SENA o aspirante a serlo.</li>
+              <li>Contar con formación técnica, tecnológica o profesional en el área.</li>
+              <li>Disponibilidad de tiempo según la modalidad del programa.</li>
+              <li>Diligenciar el formulario de inscripción en línea.</li>
+              <li>Aprobar el proceso de selección cuando aplique.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal">
+          <div class="mv-card h-100">
+            <div class="mv-icon"><i class="bi bi-signpost-2-fill"></i></div>
+            <h3>Proceso de inscripción</h3>
+            <ol class="mt-3 mb-0" style="color:var(--text-muted); line-height:1.9;">
+              <li><strong>Regístrate:</strong> completa el formulario en línea.</li>
+              <li><strong>Recibe confirmación:</strong> te contactaremos con los detalles del programa.</li>
+              <li><strong>Inicia tu formación:</strong> accede a la plataforma o sede asignada.</li>
+              <li><strong>Certifícate:</strong> finaliza y obtén tu certificado ENI.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="py-5" aria-labelledby="ctaTitle">
+    <div class="container">
+      <div class="cta-section text-center reveal">
+        <h2 id="ctaTitle">¿Listo para transformar tu práctica como instructor?</h2>
+        <p>
+          Da el siguiente paso en tu desarrollo profesional. Inscríbete en los programas
+          de la ENI y sé parte de la red de instructores que construyen el futuro del SENA.
+        </p>
+        <a href="#inscripcion" class="btn btn-light-sena btn-lg">
+          <i class="bi bi-pencil-square me-2"></i>Inscríbete ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FORMULARIO / CONTACTO ========== -->
+  <section id="contacto" class="form-section" aria-labelledby="contactoTitle">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Contacto e inscripción</span>
+        <h2 class="section-title" id="contactoTitle">Solicita tu inscripción</h2>
+        <p class="section-subtitle">
+          Completa el formulario y un asesor de la ENI se pondrá en contacto contigo
+          para orientarte en el proceso.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Información de contacto -->
+        <div class="col-lg-4 reveal">
+          <div class="bg-white rounded-4 p-4 h-100" style="box-shadow: var(--shadow-sm);">
+            <h4 class="mb-4" style="color:var(--sena-blue); font-size:1.2rem;">Información de contacto</h4>
+            <div class="contact-info-item">
+              <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <h5>Sede Nacional ENI</h5>
+                <p>Calle 57 No. 8-00, Bogotá D.C., Colombia</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <h5>Línea de atención</h5>
+                <p>(601) 546 1500 · Ext. 12345</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <h5>Correo institucional</h5>
+                <p>eni@sena.edu.co</p>
+              </div>
+            </div>
+            <div class="contact-info-item mb-0">
+              <div class="icon"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <h5>Horario de atención</h5>
+                <p>Lunes a viernes: 7:00 a.m. – 5:00 p.m.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <div class="col-lg-8 reveal" id="inscripcion">
+          <div class="form-card">
+            <form id="formInscripcion" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="nombre" class="form-label">Nombre completo *</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre"
+                         placeholder="Ej: María Pérez" required minlength="3" />
+                  <div class="invalid-feedback">Por favor ingresa tu nombre completo (mín. 3 caracteres).</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="documento" class="form-label">Documento de identidad *</label>
+                  <input type="text" class="form-control" id="documento" name="documento"
+                         placeholder="Ej: 1023456789" required pattern="[0-9]{6,12}" />
+                  <div class="invalid-feedback">Ingresa un documento válido (solo números, 6 a 12 dígitos).</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Correo electrónico *</label>
+                  <input type="email" class="form-control" id="email" name="email"
+                         placeholder="tucorreo@ejemplo.com" required />
+                  <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="telefono" class="form-label">Teléfono / Celular *</label>
+                  <input type="tel" class="form-control" id="telefono" name="telefono"
+                         placeholder="Ej: 3001234567" required pattern="[0-9]{7,12}" />
+                  <div class="invalid-feedback">Ingresa un teléfono válido (7 a 12 dígitos).</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="programa" class="form-label">Programa de interés *</label>
+                  <select class="form-select" id="programa" name="programa" required>
+                    <option value="" selected disabled>Selecciona un programa</option>
+                    <option value="pedagogica">Formación Pedagógica para Instructores</option>
+                    <option value="digitales">Competencias Digitales e Innovación Educativa</option>
+                    <option value="blandas">Habilidades Blandas y Liderazgo Formativo</option>
+                    <option value="tecnica">Actualización Técnica Especializada</option>
+                  </select>
+                  <div class="invalid-feedback">Selecciona un programa de capacitación.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="ciudad" class="form-label">Ciudad / Departamento *</label>
+                  <input type="text" class="form-control" id="ciudad" name="ciudad"
+                         placeholder="Ej: Medellín, Antioquia" required minlength="3" />
+                  <div class="invalid-feedback">Ingresa tu ciudad o departamento.</div>
+                </div>
+                <div class="col-12">
+                  <label for="mensaje" class="form-label">Mensaje o consulta (opcional)</label>
+                  <textarea class="form-control" id="mensaje" name="mensaje" rows="3"
+                            placeholder="Cuéntanos qué te gustaría saber sobre los programas ENI..."></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="autorizacion" name="autorizacion" required />
+                    <label class="form-check-label small" for="autorizacion">
+                      Autorizo el tratamiento de mis datos personales conforme a la política del SENA. *
+                    </label>
+                    <div class="invalid-feedback">Debes autorizar el tratamiento de datos para continuar.</div>
+                  </div>
+                </div>
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn btn-sena btn-lg w-100">
+                    <i class="bi bi-send-fill me-2"></i>Enviar inscripción
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Alert de éxito -->
+            <div id="alertExito" class="alert alert-success mt-3 d-none" role="alert">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              <strong>¡Inscripción enviada!</strong> Hemos recibido tu solicitud. Un asesor de la ENI te contactará pronto.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">
+            <span class="logo-eni" style="width:44px;height:44px;font-size:1rem;">ENI</span>
+            Escuela Nacional de Aprendizaje
+          </div>
+          <p class="small" style="max-width:320px; line-height:1.7;">
+            Formamos a los instructores que construyen el futuro del SENA y de Colombia.
+            Educación de calidad, innovación y compromiso social.
+          </p>
+          <div class="social-links mt-3">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h5>Enlaces rápidos</h5>
+          <a href="#inicio">Inicio</a><br />
+          <a href="#mision">Misión y Visión</a><br />
+          <a href="#oportunidades">Capacitación</a><br />
+          <a href="#beneficios">Beneficios</a><br />
+          <a href="#inscripcion">Inscripción</a>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Programas ENI</h5>
+          <a href="#oportunidades">Formación Pedagógica</a><br />
+          <a href="#oportunidades">Competencias Digitales</a><br />
+          <a href="#oportunidades">Habilidades Blandas</a><br />
+          <a href="#oportunidades">Actualización Técnica</a>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Contacto</h5>
+          <p class="small mb-2"><i class="bi bi-geo-alt-fill me-2"></i>Calle 57 No. 8-00, Bogotá D.C.</p>
+          <p class="small mb-2"><i class="bi bi-telephone-fill me-2"></i>(601) 546 1500</p>
+          <p class="small mb-2"><i class="bi bi-envelope-fill me-2"></i>eni@sena.edu.co</p>
+          <p class="small mb-0"><i class="bi bi-clock-fill me-2"></i>Lun–Vie: 7:00 a.m. – 5:00 p.m.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center">
+        <p class="mb-0">
+          &copy; <span id="year"></span> Escuela Nacional de Aprendizaje (ENI) · SENA.
+          Todos los derechos reservados. |
+          <a href="#" class="d-inline" style="color:rgba(255,255,255,0.7);">Política de privacidad</a> ·
+          <a href="#" class="d-inline" style="color:rgba(255,255,255,0.7);">Términos y condiciones</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Volver arriba">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== Año dinámico en footer =====
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Navbar scroll effect =====
+    const nav = document.getElementById('mainNav');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+        backToTop.classList.add('show');
+      } else {
+        nav.classList.remove('scrolled');
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== Active nav link según scroll =====
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.navbar-eni .nav-link');
+
+    function activateNav() {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', activateNav);
+
+    // ===== Cerrar menú móvil al hacer clic =====
+    const navCollapse = document.getElementById('navMenu');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navCollapse.classList.contains('show')) {
+          new bootstrap.Collapse(navCollapse).hide();
+        }
+      });
+    });
+
+    // ===== Animaciones reveal al hacer scroll =====
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // ===== Validación del formulario =====
+    const form = document.getElementById('formInscripcion');
+    const alertExito = document.getElementById('alertExito');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      let isValid = true;
+      const fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+
+      fields.forEach(field => {
+        field.classList.remove('is-invalid');
+        if (field.type === 'checkbox') {
+          if (!field.checked) {
+            field.classList.add('is-invalid');
+            isValid = false;
+          }
+        } else if (!field.checkValidity()) {
+          field.classList.add('is-invalid');
+          isValid = false;
+        }
+      });
+
+      // Validación extra email
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email.value && !emailRegex.test(email.value)) {
+        email.classList.add('is-invalid');
+        isValid = false;
+      }
+
+      if (isValid) {
+        // Simulación de envío exitoso
+        alertExito.classList.remove('d-none');
+        form.reset();
+        form.querySelectorAll('.is-invalid').forEach(f => f.classList.remove('is-invalid'));
+
+        // Ocultar alerta tras 6 segundos
+        setTimeout(() => {
+          alertExito.classList.add('d-none');
+        }, 6000);
+
+        // Scroll suave hacia la alerta
+        alertExito.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        // Llevar al primer campo con error
+        const firstInvalid = form.querySelector('.is-invalid');
+        if (firstInvalid) {
+          firstInvalid.focus();
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+
+    // Limpiar estado inválido al escribir
+    form.querySelectorAll('input, select, textarea').forEach(field => {
+      field.addEventListener('input', () => {
+        if (field.classList.contains('is-invalid') && field.checkValidity()) {
+          field.classList.remove('is-invalid');
+        }
+      });
+      field.addEventListener('change', () => {
+        if (field.classList.contains('is-invalid') && field.checkValidity()) {
+          field.classList.remove('is-invalid');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
